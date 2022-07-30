@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Widget</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Widget</h1>
+        <form onsubmit="getWeatherData(); return false">
+            <label for="cityname">Enter City Name</label>
+            <input type="text" required id="cityname">
+
+            <button type="submit">Get Weather Data</button>
+        </form>
+        <div class="result">
+            <h2>Real Time Weather Data</h2>
+            <div class="para">
+                <p id="tc"></p>
+                <p id="tf"></p>
+                <p id="hm"></p>
+                <p id="prp"></p>
+                <p id="ws"></p> 
+                <p id="cty"></p>
+                <p id="rgn"></p>
+                <p id="cont"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getWeatherData(){
+        let cityname = document.querySelector(`#cityname`).value;
+        axios.get(`https://api.weatherapi.com/v1/current.json?key=1cab1b66b8964883bfe133911222907&q=${cityname}&aqi=no`)
+            .then(function (response) {
+                // handle success
+                let weatherData = response.data;
+                console.log(weatherData);
+                // console.log(weatherData.current.temp_c);
+                // console.log(weatherData.current.temp_f);
+                // console.log(weatherData.current.humidity);
+                // console.log(weatherData.current.precip_in);
+                // console.log(weatherData.current.wind_kph);
+                // console.log(weatherData.location.name);
+                // console.log(weatherData.location.region);
+                // console.log(weatherData.location.country);
+                document.querySelector(`#tc`).innerHTML = `Current temperature (°C): ${weatherData.current.temp_c}`;
+                document.querySelector(`#tf`).innerHTML = `Current temperature (°F): ${weatherData.current.temp_f}`;
+                document.querySelector(`#hm`).innerHTML = `Relative humidity: ${weatherData.current.humidity} %`;
+                document.querySelector(`#prp`).innerHTML = `Precipitation (mm): ${weatherData.current.precip_mm}`;
+                document.querySelector(`#ws`).innerHTML = `Wind Speed: ${weatherData.current.wind_kph} Km/h`;
+                document.querySelector(`#cty`).innerHTML = `City: ${weatherData.location.name}`;
+                document.querySelector(`#rgn`).innerHTML = `Region: ${weatherData.location.region}`;
+                document.querySelector(`#cont`).innerHTML = `Country: ${weatherData.location.country}`;
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+        }
+    </script>
+    
+
+
+    <!-- https://api.weatherapi.com/v1/current.json?key=1cab1b66b8964883bfe133911222907&q=London&aqi=no --> 
+</body>
+</html>

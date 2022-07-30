@@ -1,0 +1,92 @@
+body {
+    background-image: url("./images/background.jpg");
+    background-repeat:repeat;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+
+.container {
+    /* border: 2px solid black; */
+    /* border-radius: 20px; */
+    padding: 10px;
+    width: 70%;
+    height: 650px;
+    margin: auto;
+    text-align: center;
+    
+
+    /* From https://css.glass */
+background: rgba(68, 167, 196, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+form {
+    border: 1px solid rgb(211, 214, 214);
+    height: 70px;
+    width: 70%;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+}
+form > label, input, button {
+    margin: 20px;
+}
+form > label {
+    font-size:x-large;
+    color:floralwhite;
+}
+form > input {
+    border: 1px solid wheat;
+    border-radius: 10px;
+    width: 150px;
+    height: 20px;
+}
+form > button {
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: black;
+    background-color: burlywood;
+}
+form > button:hover {
+    background-color: black;
+    color: cornsilk;
+}
+
+.result {
+    border: 2px solid rgb(195, 195, 199);
+    margin: 20px 100px;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 350px;
+    width: 80%;
+   
+}
+.para {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 5px;
+}
+.para > p {
+    margin: 10px;
+    border: 1px solid rgb(245, 247, 248);
+    border-radius: 15px;
+    background-color:grey,rgba(68, 167, 196, 0.01);
+    color: beige;
+    width: auto;
+    height: 25px;
+    padding: 15px;
+    font-size: large;
+    font-weight: bolder;
+}
+h1,h2 {
+    color: cornsilk;
+    letter-spacing: 3px;
+}
